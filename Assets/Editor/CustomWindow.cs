@@ -64,6 +64,8 @@ public class CustomWindow : EditorWindow
     private bool inspectorTitlebar;
     private Object objectField;
 
+    private EnumCustom _enumCustom = EnumCustom.None;
+
     /// <summary>
     /// 绘制窗口
     /// </summary>
@@ -184,6 +186,12 @@ public class CustomWindow : EditorWindow
 
         EditorGUILayout.EndScrollView();
         //滚动视图分组↑
+
+        #region Mask
+        //_enumValue0 = (EnumValue0)EditorGUILayout.EnumMaskField("EnumMaskField", _enumValue0);
+        //EditorGUILayout.EnumMaskPopup();
+        _enumCustom = (EnumCustom)EditorGUILayout.EnumFlagsField(_enumCustom);
+        #endregion
     }
 
     /// <summary>
@@ -200,7 +208,7 @@ public class CustomWindow : EditorWindow
     /// </summary>
     public void OnSelectionChange()
     {
-        UnityEngine.Object obj = Selection.activeObject;
+        Object obj = Selection.activeObject;
         Debug.Log(string.Format("OnSelectionChange 选择对象：{0}", obj == null ? "未选择" : obj.name));
     }
 
@@ -241,4 +249,12 @@ public class CustomWindow : EditorWindow
     {
         Debug.Log("OnDestroy 关闭窗口");
     }
+}
+
+public enum EnumCustom
+{
+    None,
+    A,
+    B,
+    C
 }

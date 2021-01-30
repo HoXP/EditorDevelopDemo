@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BeautifyInspector : MonoBehaviour
 {
-    //☆首先要知道，被序列化的字段会在Inspector显示，无论访问修饰符是啥，相反，被指定不序列化的字段不会再Inspector显示
+    //☆首先要知道，被序列化的字段会在Inspector显示，无论访问修饰符是啥，相反，被指定不序列化的字段不会在Inspector显示
     /// <summary>
     /// public修饰的字段会被序列化
     /// </summary>
